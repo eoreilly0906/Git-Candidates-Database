@@ -71,10 +71,15 @@ npm run dev
 Starter code provided
 
 https://react.dev/reference/react/useState
+
 https://docs.github.com/en/rest/users/users
+
 https://coding-boot-camp.github.io/full-stack/render/render-deployment-guide
+
 https://docs.render.com/configure-environment-variables
+
 https://www.Google.com
+
 https://coding-boot-camp.github.io/full-stack/render/render-deployment-guide
 
 ## Screenshots of app
