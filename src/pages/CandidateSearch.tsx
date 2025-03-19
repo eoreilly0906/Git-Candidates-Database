@@ -101,27 +101,113 @@ const CandidateSearch = () => {
     <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Candidate Search</h1>
       {currentCandidate && (
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        <div style={{ 
+          maxWidth: '600px', 
+          margin: '0 auto',
+          padding: '30px',
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          backgroundColor: 'rgba(255, 255, 255, 0.1)',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+        }}>
           <img
             src={currentCandidate.avatar_url}
             alt={`${currentCandidate.login}'s avatar`}
-            style={{ width: '200px', borderRadius: '50%', margin: '20px 0' }}
+            style={{ 
+              width: '200px', 
+              height: '200px',
+              borderRadius: '50%', 
+              margin: '20px 0',
+              border: '3px solid #fff',
+              objectFit: 'cover'
+            }}
           />
-          <h2>{currentCandidate.name || currentCandidate.login}</h2>
-          <p>Username: {currentCandidate.login}</p>
-          {currentCandidate.location && <p>Location: {currentCandidate.location}</p>}
-          {currentCandidate.email && <p>Email: {currentCandidate.email}</p>}
-          {currentCandidate.company && <p>Company: {currentCandidate.company}</p>}
-          <p>
-            <a href={currentCandidate.html_url} target="_blank" rel="noopener noreferrer">
-              GitHub Profile
-            </a>
-          </p>
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '20px' }}>
-            <button onClick={() => verifyAndLoadCandidate()} style={{ backgroundColor: '#ff4444' }}>
+          <h2 style={{ 
+            margin: '10px 0',
+            fontSize: '1.5em',
+            color: '#fff'
+          }}>
+            {currentCandidate.name || currentCandidate.login}
+          </h2>
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '8px',
+            marginBottom: '20px',
+            fontSize: '1.1em'
+          }}>
+            <p><strong>Username:</strong> {currentCandidate.login}</p>
+            {currentCandidate.location && <p><strong>Location:</strong> {currentCandidate.location}</p>}
+            {currentCandidate.email && <p><strong>Email:</strong> {currentCandidate.email}</p>}
+            {currentCandidate.company && <p><strong>Company:</strong> {currentCandidate.company}</p>}
+          </div>
+          <a 
+            href={currentCandidate.html_url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              padding: '8px 16px',
+              backgroundColor: '#0366d6',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '4px',
+              marginBottom: '20px',
+              transition: 'background-color 0.2s'
+            }}
+            onMouseOver={e => e.currentTarget.style.backgroundColor = '#0245a3'}
+            onMouseOut={e => e.currentTarget.style.backgroundColor = '#0366d6'}
+          >
+            View GitHub Profile
+          </a>
+          <div style={{ 
+            display: 'flex', 
+            gap: '20px', 
+            justifyContent: 'center',
+            marginTop: '20px'
+          }}>
+            <button 
+              onClick={() => verifyAndLoadCandidate()} 
+              style={{ 
+                backgroundColor: '#ff4444',
+                color: 'white',
+                border: 'none',
+                borderRadius: '50%',
+                width: '40px',
+                height: '40px',
+                fontSize: '24px',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 0
+              }}
+              onMouseOver={e => e.currentTarget.style.backgroundColor = '#cc3333'}
+              onMouseOut={e => e.currentTarget.style.backgroundColor = '#ff4444'}
+            >
               -
             </button>
-            <button onClick={saveCandidate} style={{ backgroundColor: '#44ff44' }}>
+            <button 
+              onClick={saveCandidate} 
+              style={{ 
+                backgroundColor: '#44ff44',
+                color: 'white',
+                border: 'none',
+                borderRadius: '50%',
+                width: '40px',
+                height: '40px',
+                fontSize: '24px',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: 0
+              }}
+              onMouseOver={e => e.currentTarget.style.backgroundColor = '#33cc33'}
+              onMouseOut={e => e.currentTarget.style.backgroundColor = '#44ff44'}
+            >
               +
             </button>
           </div>
