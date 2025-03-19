@@ -80,8 +80,8 @@ https://coding-boot-camp.github.io/full-stack/render/render-deployment-guide
 ## Screenshots of app
 
 ### Candidate Search Page
-![Candidate Search Page](assets/candidate-search.png)
+<img src="./assets/candidate-search.png" alt="Candidate Search Page" width="800" />
 
 ### Saved Candidates Page
-![Saved Candidates Page](assets/saved-candidates.png)
+<img src="./assets/saved-candidates.png" alt="Saved Candidates Page" width="800" />
 
