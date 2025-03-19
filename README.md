@@ -1,6 +1,16 @@
-# Git Candidates Database
+# Git Candidate Database
+This is an app to help employers find their dream candidates!
 
-A web application for searching and managing potential GitHub candidates.
+## Render Link to app:
+https://git-candidates-database.onrender.com/
+
+## How It's Made:
+Using React, Javescript, HTML and CSS inplementation in React.
+Using Render to deploy and VS Code to build
+
+
+**Tech used:**  React, Node, Love and affection
+
 
 ## Setup
 
@@ -51,3 +61,15 @@ npm run dev
 - `VITE_GITHUB_TOKEN`: GitHub Personal Access Token (required)
   - Required permissions: `read:user`, `user:email`
   - Generate at: https://github.com/settings/tokens
+
+
+**Github:** <https://github.com/eoreilly0906>
+
+**Email:** edwardoreilly0906@gmail.com
+
+## Notes on code
+
+
+
+
+
