@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { searchGithub, searchGithubUser, verifyToken } from '../api/API';
 import { Candidate } from '../interfaces/Candidate.interface';
 
-const CandidateSearch = () => {
+const CandidateSearch = () => { // This is the CandidateSearch component
   const [currentCandidate, setCurrentCandidate] = useState<Candidate | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const verifyAndLoadCandidate = async () => {
+  const verifyAndLoadCandidate = async () => { // This is the verifyAndLoadCandidate function
     try {
       setLoading(true);
       setError(null);
@@ -28,11 +28,11 @@ const CandidateSearch = () => {
       }
 
       // Try each user in the list until we find one with complete data
-      for (const user of users) {
+      for (const user of users) { // This is the for loop
         try {
-          const detailedUser = await searchGithubUser(user.login);
-          if (detailedUser && detailedUser.login) {
-            setCurrentCandidate(detailedUser);
+          const detailedUser = await searchGithubUser(user.login); // This is the detailedUser variable 
+          if (detailedUser && detailedUser.login) { // This is the if statement
+            setCurrentCandidate(detailedUser); // This is the setCurrentCandidate function
             return;
           }
         } catch (err) {
@@ -54,17 +54,17 @@ const CandidateSearch = () => {
     }
   };
 
-  const saveCandidate = () => {
-    if (currentCandidate) {
+  const saveCandidate = () => { // This is the saveCandidate function
+    if (currentCandidate) { // This is the if statement
       try {
-        const savedCandidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
-        if (!savedCandidates.some((c: Candidate) => c.id === currentCandidate.id)) {
+        const savedCandidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]'); // This is the savedCandidates variable
+        if (!savedCandidates.some((c: Candidate) => c.id === currentCandidate.id)) { // This is the if statement
           localStorage.setItem(
             'savedCandidates',
             JSON.stringify([...savedCandidates, currentCandidate])
           );
         }
-        verifyAndLoadCandidate();
+        verifyAndLoadCandidate(); // This is the verifyAndLoadCandidate function
       } catch (err) {
         console.error('Error saving candidate:', err);
         setError('Error saving candidate. Please try again.');
@@ -72,11 +72,11 @@ const CandidateSearch = () => {
     }
   };
 
-  useEffect(() => {
-    verifyAndLoadCandidate();
-  }, []);
+  useEffect(() => { // This is the useEffect function
+    verifyAndLoadCandidate(); // This is the verifyAndLoadCandidate function
+  }, []); // This is the empty array
 
-  if (loading) {
+  if (loading) { // This is the if statement
     return (
       <div style={{ textAlign: 'center', padding: '20px' }}>
         <h1>Candidate Search</h1>
@@ -85,7 +85,7 @@ const CandidateSearch = () => {
     );
   }
 
-  if (error) {
+  if (error) { // This is the if statement
     return (
       <div style={{ textAlign: 'center', padding: '20px' }}>
         <h1>Candidate Search</h1>
@@ -97,37 +97,37 @@ const CandidateSearch = () => {
     );
   }
 
-  return (
+  return ( // This is the return statement
     <div style={{ textAlign: 'center', padding: '20px' }}>
       <h1>Candidate Search</h1>
       {currentCandidate && (
         <div style={{ 
-          maxWidth: '600px', 
-          margin: '0 auto',
-          padding: '30px',
-          border: '1px solid #ccc',
-          borderRadius: '8px',
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+          maxWidth: '600px', // This is the maxWidth variable
+          margin: '0 auto', // This is the margin variable
+          padding: '30px', // This is the padding variable
+          border: '1px solid #ccc', // This is the border variable
+          borderRadius: '8px', // This is the borderRadius variable
+          backgroundColor: 'rgba(255, 255, 255, 0.1)', // This is the backgroundColor variable
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' // This is the boxShadow variable
         }}>
           <img
             src={currentCandidate.avatar_url}
             alt={`${currentCandidate.login}'s avatar`}
             style={{ 
-              width: '200px', 
-              height: '200px',
-              borderRadius: '50%', 
-              margin: '20px 0',
-              border: '3px solid #fff',
-              objectFit: 'cover'
+              width: '200px', // This is the width variable
+              height: '200px', // This is the height variable
+              borderRadius: '50%', // This is the borderRadius variable
+              margin: '20px 0', // This is the margin variable
+              border: '3px solid #fff', // This is the border variable
+              objectFit: 'cover' // This is the objectFit variable
             }}
           />
           <h2 style={{ 
-            margin: '10px 0',
-            fontSize: '1.5em',
-            color: '#fff'
+            margin: '10px 0', // This is the margin variable
+            fontSize: '1.5em', // This is the fontSize variable
+              color: '#fff' // This is the color variable
           }}>
-            {currentCandidate.name || currentCandidate.login}
+            {currentCandidate.name || currentCandidate.login} 
           </h2>
           <div style={{ 
             display: 'flex', 

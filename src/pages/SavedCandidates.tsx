@@ -1,31 +1,31 @@
 import { useState, useEffect } from 'react';
 import { Candidate } from '../interfaces/Candidate.interface';
 
-const SavedCandidates = () => {
-  const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]);
+const SavedCandidates = () => { // This is the SavedCandidates component
+  const [savedCandidates, setSavedCandidates] = useState<Candidate[]>([]); // This is the savedCandidates variable
 
-  useEffect(() => {
-    const loadSavedCandidates = () => {
-      const candidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]');
-      setSavedCandidates(candidates);
+  useEffect(() => { // This is the useEffect function   
+    const loadSavedCandidates = () => { // This is the loadSavedCandidates function
+      const candidates = JSON.parse(localStorage.getItem('savedCandidates') || '[]'); // This is the candidates variable
+      setSavedCandidates(candidates); // This is the setSavedCandidates function
     };
 
-    loadSavedCandidates();
+    loadSavedCandidates(); // This is the loadSavedCandidates function
     // Add event listener for storage changes
-    window.addEventListener('storage', loadSavedCandidates);
+    window.addEventListener('storage', loadSavedCandidates); // This is the event listener for storage changes
 
     return () => {
       window.removeEventListener('storage', loadSavedCandidates);
     };
-  }, []);
+  }, []); // This is the empty array
 
-  const handleDelete = (candidateId: number) => {
-    const updatedCandidates = savedCandidates.filter(candidate => candidate.id !== candidateId);
-    localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates));
-    setSavedCandidates(updatedCandidates);
+  const handleDelete = (candidateId: number) => { // This is the handleDelete function
+    const updatedCandidates = savedCandidates.filter(candidate => candidate.id !== candidateId); // This is the updatedCandidates variable
+    localStorage.setItem('savedCandidates', JSON.stringify(updatedCandidates)); // This is the localStorage item for savedCandidates
+    setSavedCandidates(updatedCandidates); // This is the setSavedCandidates function
   };
 
-  if (savedCandidates.length === 0) {
+  if (savedCandidates.length === 0) { // This is the if statement
     return (
       <div style={{ textAlign: 'center', padding: '20px' }}>
         <h1>Potential Candidates</h1>
