@@ -76,3 +76,12 @@ https://coding-boot-camp.github.io/full-stack/render/render-deployment-guide
 https://docs.render.com/configure-environment-variables
 https://www.Google.com
 https://coding-boot-camp.github.io/full-stack/render/render-deployment-guide
+
+## Screenshots of app
+
+### Candidate Search Page
+![Candidate Search Page](assets/candidate-search.png)
+
+### Saved Candidates Page
+![Saved Candidates Page](assets/saved-candidates.png)
+
